@@ -1,0 +1,41 @@
+##912. Given an array of integers nums, sort the array in ascending order.
+
+Example 1:
+
+Input: nums = [5,2,3,1]
+Output: [1,2,3,5]
+
+Example 2:
+
+Input: nums = [5,1,1,2,0,0]
+Output: [0,0,1,1,2,5]
+
+###Solution 1: Use Arrays.sort built in Java. 
+As int[] is required for returning value, I directly return the result after sorting without changing its data type.
+
+class Solution {
+    public int[] sortArray(int[] nums) {
+        Arrays.sort(nums);
+        return nums;
+    }
+}
+
+###Solution 2: Brutal Force: Use Temp 
+public class Sort {
+	    public static int[] sortArray(int[] nums) {
+	        for(int i=0;i<nums.length;i++) {
+	        	for(int j=i+1; j<nums.length;j++) {
+	        		if(nums[j]< nums[i]) 
+	        			swap(nums,i,j);
+	        	}
+	        }
+	        return (nums);
+	    }
+	    
+	    public static int[] swap(int[] nums, int i,int j) {
+	    	int temp= nums[j];
+	    	nums[j]= nums[i];
+	    	nums[i]= temp;
+	    	return nums ;
+	    }
+}
